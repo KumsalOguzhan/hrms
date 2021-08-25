@@ -2,15 +2,16 @@ package kodlamaio.hrms.business.concretes;
 
 import kodlamaio.hrms.business.abstracts.EmailCheckService;
 import kodlamaio.hrms.business.abstracts.JobSeekerService;
-import kodlamaio.hrms.core.adapter.MernisManagerAdapter;
 import kodlamaio.hrms.core.adapter.MernisValidationService;
 import kodlamaio.hrms.core.utilities.results.*;
 import kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class JobSeekerManager implements JobSeekerService {
     private JobSeekerDao jobSeekerDao;
     private MernisValidationService mernisValidationService;
@@ -26,7 +27,7 @@ public class JobSeekerManager implements JobSeekerService {
 
     @Override
     public DataResult<List<JobSeeker>> getAll() {
-        return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerDao.findAll(), "İş arayanlar listelendi.");
+        return new SuccessDataResult<>(this.jobSeekerDao.findAll(), "İş arayanlar listelendi.");
     }
 
     @Override

@@ -3,9 +3,10 @@ package kodlamaio.hrms.business.concretes;
 import kodlamaio.hrms.business.abstracts.EmailCheckService;
 import kodlamaio.hrms.core.entities.User;
 import kodlamaio.hrms.entities.concretes.Employer;
+import org.springframework.stereotype.Service;
 
-import java.util.regex.Pattern;
 
+@Service
 public class EmailCheckManager implements EmailCheckService {
 
     @Override
@@ -18,10 +19,6 @@ public class EmailCheckManager implements EmailCheckService {
         String namePart = partsOfUserEmail[0];
         String domainPart = partsOfUserEmail[1];
 
-        if (domainPart.equals(employer.getWebsite())){
-            return true;
-        }else {
-            return false;
-        }
+        return domainPart.equals(employer.getWebsite());
     }
 }

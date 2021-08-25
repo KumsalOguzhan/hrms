@@ -14,7 +14,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-//@ComponentScan(basePackages = {"kodlamaio.hrms.business.abstracts"})
 @EnableAutoConfiguration
 public class HrmsApplication {
 
